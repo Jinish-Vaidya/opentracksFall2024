@@ -74,11 +74,13 @@ public class TrackPointAssert {
     }
 
     public void assertEquals(List<TrackPoint> expected, List<TrackPoint> actual) {
-        try {
-            Assert.assertEquals(expected.size(), actual.size());
-        } catch (AssertionError e) {
-            throw new AssertionError("Size difference; expected: " + expected.size() + "; actual: " + actual.size() + "\nExpected: " + expected + "\n actual: " + actual);
-        }
+        Assert.assertEquals(
+                "Size difference; expected: " + expected.size() +
+                        "; actual: " + actual.size() +
+                        "\nExpected: " + expected + "\n actual: " + actual,
+                expected.size(),
+                actual.size()
+        );
 
         for (int i = 0; i < expected.size(); i++) {
             try {
